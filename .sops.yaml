@@ -1,0 +1,6 @@
+creation_rules:
+  - pgp: "484DFF76CD05315041D43EB25E394956DEA03D72"
+    path_regex: \.production\.yaml$
+
+  - pgp: "484DFF76CD05315041D43EB25E394956DEA03D72"
+    path_regex: \.staging\.yaml$

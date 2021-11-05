@@ -1,0 +1,59 @@
+{{- if .Values.autoscaling.app.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "sehatq-api.fullname" . }}
+  labels:
+    {{- include "sehatq-api.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "sehatq-api.fullname" . }}
+  minReplicas: {{ .Values.autoscaling.app.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.app.maxReplicas }}
+  metrics:
+    {{- if .Values.autoscaling.app.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.autoscaling.app.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.autoscaling.app.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.autoscaling.app.targetMemoryUtilizationPercentage }}
+    {{- end }}
+{{- end }}
+
+---
+
+{{- if .Values.autoscaling.sidekiq.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "sehatq-api.fullname" . }}-sidekiq
+  labels:
+    {{- include "sehatq-api.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "sehatq-api.fullname" . }}-sidekiq
+  minReplicas: {{ .Values.autoscaling.sidekiq.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.sidekiq.maxReplicas }}
+  metrics:
+    {{- if .Values.autoscaling.sidekiq.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.autoscaling.sidekiq.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.autoscaling.sidekiq.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.autoscaling.sidekiq.targetMemoryUtilizationPercentage }}
+    {{- end }}
+{{- end }}
