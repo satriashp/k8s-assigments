@@ -1,16 +1,16 @@
 import React, { FC, forwardRef, memo } from 'react';
 import styled from '@emotion/styled';
 import logo from 'assets/images/icons/printerous-partner.svg';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
-  FaAngleDown, FaBell, FaEnvelope, FaShoppingBasket,
+  FaAngleDown, FaBell, FaCommentAlt, FaStar,
 } from 'react-icons/fa';
 import { Dropdown } from 'react-bootstrap';
 import { utils } from 'helpers';
 
 const Nav = styled.nav`
   background-color: var(--b-30);
-  padding: 18px 40px;
+  padding: 12px 40px;
   display: flex;
   align-items: center;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@ const Menu = styled.ul`
       font-size: 16px;
 
       &.active {
-        color: white;
+        color: #EFF1FB;
         font-weight: 500;
         font-family: 'printerous-font-medium';
       }
@@ -52,7 +52,7 @@ const RightMenu = styled.ul`
   button {
     background-color: transparent;
     padding: 0;
-    height: 24px;
+    height: 36px;
 
     &:focus {
       outline: none;
@@ -63,8 +63,8 @@ const RightMenu = styled.ul`
 
   .image {
     display: inline-flex;
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -108,6 +108,16 @@ const User = forwardRef((props: any, ref: any) => (
   </button>
 ));
 
+const Dot = styled.div`
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--r-30);
+`;
+
 interface IMenu {
   path: string;
   title: string;
@@ -115,15 +125,15 @@ interface IMenu {
 
 const menus: IMenu[] = [
   {
-    path: '/quotations',
+    path: '/quotations/new',
     title: 'Quotations',
   },
   {
-    path: '/',
+    path: '/purchase-order',
     title: 'Purchase Order',
   },
   {
-    path: '/',
+    path: '/package',
     title: 'Paket',
   },
 ];
@@ -131,45 +141,43 @@ interface TopBarProps {
   userName: string;
 }
 
+const messages = 0;
+const chats = 0;
+
 const TopBar: FC<TopBarProps> = ({ userName }) => (
   <Nav>
     <img src={logo} alt="Printerous Partner" />
     <Menu>
       {menus.map(menu => (
-        <li key={menu.path}>
-          <Link to={menu.path}>{menu.title}</Link>
+        <li key={menu.path} className="position-relative">
+          <NavLink to={menu.path}>{menu.title}</NavLink>
+          <Dot />
         </li>
       ))}
     </Menu>
     <RightMenu>
       <li>
-        <LinkWithCounter to="/cart">
-          <Counter>
-            20
-          </Counter>
-          <FaShoppingBasket color="white" size={16} />
+        <div className="rounded-pill bg-b-20 px-3 py-2">
+          <span className="text-white med-14">2.8</span>
+          <FaStar color="var(--y-20)" size={16} className="ml-2" />
+        </div>
+      </li>
+      <li>
+        <LinkWithCounter to="/messages">
+          {!!messages && <Counter>{messages}</Counter>}
+          <FaCommentAlt color="white" size={16} />
         </LinkWithCounter>
       </li>
       <li>
         <LinkWithCounter to="/notification">
-          <Counter>
-            10
-          </Counter>
+          {!!chats && <Counter>{chats}</Counter>}
           <FaBell color="white" size={16} />
         </LinkWithCounter>
       </li>
-      <li>
-        <LinkWithCounter to="/notification">
-          <Counter>
-            10
-          </Counter>
-          <FaEnvelope color="white" size={16} />
-        </LinkWithCounter>
-      </li>
-      <li>
+      <li className="pr-0">
         <Dropdown>
           <Dropdown.Toggle as={User}>
-            <div className="image">{userName[0]}</div>
+            <div className="image">{userName[0] || 'P'}</div>
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>Profile</Dropdown.Item>

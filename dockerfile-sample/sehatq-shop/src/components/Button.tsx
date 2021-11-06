@@ -20,7 +20,7 @@ const Button: FC<ButtonProps> = ({
     )}
     <span className="text med-14">
       {leftIcon}
-      <span className={clsx(leftIcon && 'ml-3', rightIcon && 'mr-3')}>{children}</span>
+      <span className={clsx(leftIcon && 'ml-2', rightIcon && 'mr-2')}>{children}</span>
       {rightIcon}
     </span>
   </BsButton>

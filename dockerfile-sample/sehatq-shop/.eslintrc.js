@@ -11,5 +11,6 @@ module.exports = {
     'no-unused-vars': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
     'react/require-default-props': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

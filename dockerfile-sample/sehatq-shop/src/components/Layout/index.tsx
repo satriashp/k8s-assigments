@@ -1,6 +1,6 @@
 import Preloader from 'components/Preloader';
 import React, { FC, memo, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import routes from 'routes';
 import TopBar from './TopBar';
 
@@ -20,6 +20,7 @@ const Layout: FC = () => (
           )}
         />
       ))}
+      <Redirect from="/" to="/quotations/new" exact />
     </Switch>
   </>
 );

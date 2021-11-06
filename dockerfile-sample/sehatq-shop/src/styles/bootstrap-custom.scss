@@ -35,6 +35,7 @@
 
 .btn.btn-outline-white {
   @include button-variant(white, $n-20);
+  color: $n-60;
 }
 
 // button
@@ -55,6 +56,11 @@
   );
 }
 
+.btn-outline-secondary {
+  @include button-outline-variant($n-50, $n-50, $n-5, $n-20);
+  border-color: $n-20;
+}
+
 .btn {
   &.btn-transparent,
   &.btn-icon {
@@ -68,8 +74,11 @@
   &.btn-icon {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: $border-radius;
     padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &.disabled,
@@ -183,6 +192,9 @@
 
   .input-group-text {
     border-color: $n-20;
+    padding: 7px 12px;
+    line-height: 20px;
+    background-color: $n-10;
   }
 }
 
@@ -329,6 +341,7 @@
 // pagination
 .pagination {
   .page-item {
+    cursor: pointer;
     &:not(:last-of-type) {
       margin-right: 8px;
     }
@@ -374,7 +387,7 @@
   }
 }
 
-.form-control, .custom-select {
+.form-control, .custom-select, .input-group {
   ~ .invalid-feedback {
     color: var(--n-50);
   }
@@ -415,9 +428,44 @@
     border-radius: 4px;
     background-color: var(--n-90);
     padding: 8px 12px;
+    max-width: 300px;
+  }
+
+  &.custom {
+    opacity: 1;
   }
 
   &.w-300 .tooltip-inner {
     min-width: 300px;
+  }
+}
+
+.badge {
+  padding: 4px 8px;
+  font-family: 'printerous-font-medium';
+  font-weight: 500;
+  font-size: 10px;
+  background-color: var(--n-10);
+  color: var(--n-60);
+  line-height: 16px;
+
+  &-info {
+    background-color: var(--b-10);
+    color: var(--br-50);
+  }
+
+  &-warning {
+    background-color: var(--y-10);
+    color: var(--y-30);
+  }
+
+  &-danger {
+    background-color: var(--r-10);
+    color: var(--r-30);
+  }
+
+  &-success {
+    background-color: var(--g-10);
+    color: var(--g-30);
   }
 }

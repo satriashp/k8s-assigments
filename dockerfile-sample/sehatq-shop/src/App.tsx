@@ -7,6 +7,12 @@ import { ToastContainer } from 'react-toastify';
 import { utils } from 'helpers';
 import { Preloader } from 'components';
 import { Route as IRoute } from 'interfaces';
+import { QueryParamProvider } from 'use-query-params';
+import dayjs from 'dayjs';
+import 'dayjs/locale/id';
+
+const lang = utils.getLang();
+dayjs.locale(lang);
 
 const authRoutes: IRoute[] = [
   {
@@ -32,33 +38,35 @@ const App: React.FC = () => (
   <QueryClientProvider client={queryClient}>
     <ToastContainer />
     <BrowserRouter>
-      <Switch>
-        {authRoutes.map(route => (
+      <QueryParamProvider ReactRouterRoute={Route}>
+        <Switch>
+          {authRoutes.map(route => (
+            <Route
+              key={Array.isArray(route.path) ? route.path[0] : route.path}
+              exact={route.exact}
+              path={route.path}
+              render={() => (utils.getToken() && route.isRedirect !== false ? (
+                <Redirect to="/" />
+              ) : (
+                <React.Suspense fallback={<Preloader />}>
+                  <route.component />
+                </React.Suspense>
+              ))}
+            />
+          ))}
           <Route
-            key={Array.isArray(route.path) ? route.path[0] : route.path}
-            exact={route.exact}
-            path={route.path}
-            render={() => (utils.getToken() && route.isRedirect !== false ? (
-              <Redirect to="/" />
+            path="/"
+            render={() => (!utils.getToken() ? (
+              <Redirect to="/login" />
             ) : (
               <React.Suspense fallback={<Preloader />}>
-                <route.component />
+                <Layout />
               </React.Suspense>
             ))}
           />
-        ))}
-        <Route
-          path="/"
-          render={() => (!utils.getToken() ? (
-            <Redirect to="/login" />
-          ) : (
-            <React.Suspense fallback={<Preloader />}>
-              <Layout />
-            </React.Suspense>
-          ))}
-        />
-        <Redirect from="/" to="/quotations" />
-      </Switch>
+          <Redirect from="/" to="/quotations" />
+        </Switch>
+      </QueryParamProvider>
     </BrowserRouter>
   </QueryClientProvider>
 );
