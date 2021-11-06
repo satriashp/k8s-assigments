@@ -1,0 +1,19 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2021-11-04T02:27:26Z"
+  generation: 1
+  labels:
+    kops.k8s.io/cluster: k8s.sehatq.com
+  name: master-ap-southeast-1a
+spec:
+  image: kope.io/k8s-1.15-debian-stretch-amd64-hvm-ebs-2020-11-19
+  machineType: c5.xlarge
+  maxSize: 1
+  minSize: 1
+  nodeLabels:
+    kops.k8s.io/instancegroup: master-ap-southeast-1a
+  role: Master
+  subnets:
+  - ap-southeast-1a
+

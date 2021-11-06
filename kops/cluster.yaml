@@ -1,0 +1,73 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: Cluster
+metadata:
+  creationTimestamp: "2021-11-04T02:27:26Z"
+  generation: 1
+  name: k8s.sehatq.com
+spec:
+  api:
+    loadBalancer:
+      idleTimeoutSeconds: 3600
+      sslCertificate: arn:aws:acm:ap-southeast-1:123456:certificate/1234567890-
+      type: Public
+  authorization:
+    rbac: {}
+  channel: stable
+  cloudProvider: aws
+  configBase: s3://kops-state-sehatq/k8s.sehatq.com
+  dnsZone: k8s.sehatq.com
+  etcdClusters:
+  - cpuRequest: 200m
+    etcdMembers:
+    - instanceGroup: master-ap-southeast-1a
+      name: a
+    manager:
+      image: kopeio/etcd-manager:3.0.20200428
+    memoryRequest: 100Mi
+    name: main
+  - cpuRequest: 100m
+    etcdMembers:
+    - instanceGroup: master-ap-southeast-1a
+      name: a
+    manager:
+      image: kopeio/etcd-manager:3.0.20200428
+    memoryRequest: 100Mi
+    name: events
+  iam:
+    allowContainerRegistry: true
+    legacy: false
+  kubeDNS:
+    provider: CoreDNS
+  kubelet:
+    anonymousAuth: false
+    authenticationTokenWebhook: true
+    authorizationMode: Webhook
+  kubernetesApiAccess:
+  - 0.0.0.0/0
+  kubernetesVersion: 1.15.12
+  masterInternalName: api.internal.k8s.sehatq.com
+  masterPublicName: api.k8s.sehatq.com
+  networkCIDR: 172.20.0.0/16
+  networking:
+    flannel:
+      backend: vxlan
+  nonMasqueradeCIDR: 100.64.0.0/10
+  sshAccess:
+  - 0.0.0.0/0
+  subnets:
+  - cidr: 172.20.32.0/19
+    name: ap-southeast-1a
+    publicIP: 18.141.117.35
+    type: Private
+    zone: ap-southeast-1a
+  - cidr: 172.20.0.0/22
+    name: utility-ap-southeast-1a
+    type: Utility
+    zone: ap-southeast-1a
+  topology:
+    bastion:
+      bastionPublicName: bastion.k8s.sehatq.com
+    dns:
+      type: Public
+    masters: private
+    nodes: private

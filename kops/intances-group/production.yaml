@@ -1,0 +1,33 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2021-11-04T08:32:54Z"
+  generation: 1
+  labels:
+    kops.k8s.io/cluster: k8s.sehatq.com
+  name: production
+spec:
+  cloudLabels:
+    k8s.io/cluster-autoscaler/enabled: ""
+    k8s.io/cluster-autoscaler/node-template/label: ""
+  image: kope.io/k8s-1.15-debian-stretch-amd64-hvm-ebs-2020-11-19
+  machineType: r5a.large
+  maxPrice: "0.0944"
+  maxSize: 12
+  minSize: 0
+  mixedInstancesPolicy:
+    instances:
+    - r5.large
+    - r5a.large
+    - r5n.large
+    onDemandAboveBase: 0
+    onDemandBase: 0
+  nodeLabels:
+    production: "true"
+    kops.k8s.io/instancegroup: production
+    on-demand: "false"
+  role: Node
+  subnets:
+  - ap-southeast-1a
+  taints:
+  - production=true:NoSchedule
