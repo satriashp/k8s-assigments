@@ -1,0 +1,10 @@
+{
+  "required_input": "The field can't be empty.",
+  "required_option": "Please select one option.",
+  "password_confirmation_error": "The password confirmation does not match.",
+  "min_char": "The field must be at least {{min}} characters",
+  "max_char": "The filed must be at most {{max}} characters",
+  "equal_char": "The field must be {{equal}} characters",
+  "allowed_format": "The allowed format is {{allowed}}",
+  "required_password": "The password field can't be empty."
+}

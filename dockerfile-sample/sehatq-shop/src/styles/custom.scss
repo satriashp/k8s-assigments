@@ -1,0 +1,225 @@
+hr {
+  border-top: 1px solid $extras-divider;
+}
+
+.no-scroll {
+  scrollbar-width: 0px;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+.block-ui {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+ul.ul-pl-0,
+div.ul-pl-0 ul {
+  padding-left: 20px;
+}
+
+.clickable[role='button'] {
+  &:active {
+    background: rgba(0, 0, 0, 0.05);
+    opacity: 0.5;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Toastify__toast {
+    width: 90vw;
+    left: 5vw;
+  }
+}
+
+// date input
+input[type='date'] {
+  position: relative;
+}
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type='date']:after {
+  content: url('../assets/icons/calendar-icon.svg');
+  color: #555;
+  padding: 0 5px;
+}
+
+/* change color of symbol on hover */
+input[type='date']:hover:after {
+  color: #bf1400;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+/* adjust increase/decrease button */
+input[type='date']::-webkit-inner-spin-button {
+  z-index: 1;
+}
+
+/* adjust clear button */
+input[type='date']::-webkit-clear-button {
+  z-index: 1;
+}
+
+.Toastify__toast {
+  box-shadow: none;
+  background-color: white;
+  color: var(--n-90);
+  border-left-width: 4px !important;
+  padding: 10px !important;
+
+  &--info {
+    border: 1px solid $b-40;
+  }
+
+  &--success {
+    border: 1px solid $g-20;
+  }
+
+  &--warning {
+    border: 1px solid $y-40;
+  }
+
+  &--error {
+    border: 1px solid $r-40;
+  }
+}
+
+.Toast {
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+  }
+
+  &--info svg {
+    color: $b-30;
+  }
+
+  &--success svg {
+    color: $g-30;
+  }
+
+  &--warning svg {
+    color: $y-30;
+  }
+
+  &--error svg {
+    color: $r-30;
+  }
+
+  &--text {
+    color: var(--n-70);
+  }
+}
+
+.btn--loading {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    opacity: 0;
+  }
+}
+
+// React Select Custom
+.react-select-async {
+  width: 100%;
+  position: relative;
+  margin-bottom: 12px;
+
+  .react-select__menu {
+    z-index: 3;
+  }
+
+  .react-select__control {
+    border-radius: var(--border-radius) !important;
+    box-shadow: none !important;
+    height: 44px;
+    border-color:#ced4da !important;
+    &:hover {
+      border-color:#ced4da !important;
+    }
+    .react-select__placeholder {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 99%;
+    }
+  }
+
+  &.invalid {
+    .react-select__control {
+      border: 1px solid var(--danger) !important;
+      box-shadow: 0 0 0 0.5px var(--danger);
+    }
+  }
+  .react-select__dropdown-indicator {
+    svg {
+      transition: 0.2s;
+    }
+  }
+  .react-select__control.react-select__control--is-focused {
+    border-color: var(--br-40) !important;
+  }
+  .react-select__control.react-select__control--menu-is-open {
+    .react-select__dropdown-indicator {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  .react-select__menu-list {
+    .react-select__option {
+      cursor: pointer;
+      &--is-selected {
+        background-color: var(--br-40) !important;
+        color: #FFFFFF !important;
+        p, span {
+          color: #FFFFFF !important;
+        }
+      }
+    }
+
+  }
+}
+
+.modal-address {
+  .select-component {
+    width: 100%;
+  }
+  button {
+    height: 44px !important;
+  }
+  .input-group-text {
+    height: 44px;
+  }
+}
+
+.rounded-2 {
+  border-radius: 2px !important;
+}

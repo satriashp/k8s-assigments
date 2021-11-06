@@ -1,0 +1,22 @@
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$border-radius: 2px;
+$nav-top: 0;
+:root {
+  --border-radius: #{$border-radius};
+  --nav-top: #{$nav-top};
+}
+
+$rt-font-family: 'printerous-font-regular';
+
+html, body {
+  font-size: 14px;
+}
+
+$input-height: 36px;
+$input-btn-padding-y: .714rem;
+$input-btn-padding-x: .85rem;

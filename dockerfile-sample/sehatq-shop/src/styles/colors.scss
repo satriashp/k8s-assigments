@@ -1,0 +1,241 @@
+$extras-bg: #f5f6f7;
+$extras-white: #ffffff;
+$extras-divider: #eceff3;
+$extras-disabled: #e8e8e8;
+
+// $gray-900: #323132;
+// $gray-800: #3d3d3d;
+// $gray-700: #5b5b5b;
+// $gray-600: #7a7a7a;
+// $gray-500: #999999;
+// $gray-400: #adadad;
+// $gray-300: #c1c1c1;
+// $gray-200: #d6d6d6;
+// $gray-100: #eaeaea;
+// $gray-50: #f4f4f4;
+
+$n-90: #24282d;
+$n-80: #40454f;
+$n-70: #525966;
+$n-60: #646d7d;
+$n-50: #818a9a;
+$n-40: #a4abb6;
+$n-30: #bbc0c9;
+$n-20: #d2d5db;
+$n-15: #e0e2e6;
+$n-10: #e8eaed;
+$n-5: #fcfcfc;
+$n-0: #ffffff;
+
+$green-900: #405c20;
+$green-800: #4d6f27;
+// $green-700: #54812d;
+$green-600: #74a63a;
+$green-500: #84bf3d;
+// $green-400: #9ac766;
+// $green-300: #b3d58d;
+// $green-200: #cce383;
+// $green-100: #e5f1d9;
+$green-50: #f2f8ec;
+
+$g-40: #125955;
+$g-30: #12968c;
+$g-20: #17c4b6;
+$g-10: #edf7f2;
+
+// $blue-900: #02526b;
+// $blue-800: #036481;
+// $blue-700: #037396;
+// $blue-600: #0494c1;
+// $blue-500: #05a5d7;
+// $blue-400: #36b7df;
+// $blue-300: #69c9e7;
+// $blue-200: #9bdbef;
+// $blue-100: #cdedf7;
+// $blue-50: #e6f6fb;
+
+$b-40: #0e277c;
+$b-30: #163ec0;
+$b-20: #456be8;
+$b-10: #eff1fb;
+
+// $yellow-900: #7b5d22;
+// $yellow-800: #947028;
+// $yellow-700: #ac822f;
+// $yellow-600: #c59536;
+$yellow-500: #f7bb44;
+// $yellow-400: #f8c869;
+// $yellow-300: #fad68e;
+// $yellow-200: #fbe3b4;
+// $yellow-100: #fdf1d9;
+$yellow-50: #fef9f0;
+
+$y-40: #7e3d11;
+$y-30: #cb7606;
+$y-20: #f89d25;
+$y-10: #fef6eb;
+
+// $red-900: #60071d;
+// $red-800: #730823;
+$red-700: #860929;
+$red-600: #990b2f;
+$red-500: #c00e3b;
+// $red-400: #cc3e62;
+// $red-300: #d96e89;
+// $red-200: #e593b0;
+// $red-100: #f2ced7;
+$red-50: #faedf1;
+
+$r-50: #7f2f34;
+$r-40: #9e101b;
+$r-30: #df1627;
+$r-20: #f75e6b;
+$r-10: #f9edef;
+
+// $brand-900: #05294c;
+// $brand-800: #083d73;
+// $brand-700: #094886;
+// $brand-600: #0c5cac;
+$brand-500: #246dba;
+$brand-400: #3e85cc;
+// $brand-300: #6ea3d9;
+// $brand-200: #9ec2e5;
+// $brand-100: #cee0f2;
+// $brand-50: #e6eff8;
+
+$br-50: #1f4ee5;
+$br-40: #326fea;
+$br-30: #64c0ff;
+$br-20: #34d4b0;
+$br-10: #00b5b0;
+
+$colors: (
+  'extras-bg': $extras-bg,
+  'extras-white': $extras-white,
+  'extras-divider': $extras-divider,
+  'extras-disabled': $extras-disabled,
+  // 'gray-900': $gray-900,
+  // 'gray-800': $gray-800,
+  // 'gray-700': $gray-700,
+  // 'gray-600': $gray-600,
+  // 'gray-500': $gray-500,
+  // 'gray-400': $gray-400,
+  // 'gray-300': $gray-300,
+  // 'gray-200': $gray-200,
+  // 'gray-100': $gray-100,
+  // 'gray-50': $gray-50,
+  'n-90': $n-90,
+  'n-80': $n-80,
+  'n-70': $n-70,
+  'n-60': $n-60,
+  'n-50': $n-50,
+  'n-40': $n-40,
+  'n-30': $n-30,
+  'n-20': $n-20,
+  'n-15': $n-15,
+  'n-10': $n-10,
+  'n-5': $n-5,
+  'n-0': $n-0,
+  'green-900': $green-900,
+  'green-800': $green-800,
+  // 'green-700': $green-700,
+  'green-600': $green-600,
+  'green-500': $green-500,
+  // 'green-400': $green-400,
+  // 'green-300': $green-300,
+  // 'green-200': $green-200,
+  // 'green-100': $green-100,
+  'green-50': $green-50,
+  'g-40': $g-40,
+  'g-30': $g-30,
+  'g-20': $g-20,
+  'g-10': $g-10,
+  // 'blue-900': $blue-900,
+  // 'blue-800': $blue-800,
+  // 'blue-700': $blue-700,
+  // 'blue-600': $blue-600,
+  // 'blue-500': $blue-500,
+  // 'blue-400': $blue-400,
+  // 'blue-300': $blue-300,
+  // 'blue-200': $blue-200,
+  // 'blue-100': $blue-100,
+  // 'blue-50': $blue-50,
+  'b-40': $b-40,
+  'b-30': $b-30,
+  'b-20': $b-20,
+  'b-10': $b-10,
+  // 'yellow-900': $yellow-900,
+  // 'yellow-800': $yellow-800,
+  // 'yellow-700': $yellow-700,
+  // 'yellow-600': $yellow-600,
+  'yellow-500': $yellow-500,
+  // 'yellow-400': $yellow-400,
+  // 'yellow-300': $yellow-300,
+  // 'yellow-200': $yellow-200,
+  // 'yellow-100': $yellow-100,
+  'yellow-50': $yellow-50,
+  'y-40': $y-40,
+  'y-30': $y-30,
+  'y-20': $y-20,
+  'y-10': $y-10,
+  // 'red-900': $red-900,
+  // 'red-800': $red-800,
+  'red-700': $red-700,
+  'red-600': $red-600,
+  'red-500': $red-500,
+  // 'red-400': $red-400,
+  // 'red-300': $red-300,
+  // 'red-200': $red-200,
+  // 'red-100': $red-100,
+  'red-50': $red-50,
+  'r-50': $r-50,
+  'r-40': $r-40,
+  'r-30': $r-30,
+  'r-20': $r-20,
+  'r-10': $r-10,
+  // 'brand-900': $brand-900,
+  // 'brand-800': $brand-800,
+  // 'brand-700': $brand-700,
+  // 'brand-600': $brand-600,
+  'brand-500': $brand-500,
+  'brand-400': $brand-400,
+  // 'brand-300': $brand-300,
+  // 'brand-200': $brand-200,
+  // 'brand-100': $brand-100,
+  // 'brand-50': $brand-50,,,,
+  'br-50': $br-50,
+  'br-40': $br-40,
+  'br-30': $br-30,
+  'br-20': $br-20,
+  'br-10': $br-10,
+);
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+
+  .border-#{$name} {
+    border: 1px solid $color !important;
+  }
+
+  .border-top-#{$name} {
+    border-top: 1px solid $color !important;
+  }
+
+  .border-right-#{$name} {
+    border-right: 1px solid $color !important;
+  }
+
+  .border-bottom-#{$name} {
+    border-bottom: 1px solid $color !important;
+  }
+
+  .border-left-#{$name} {
+    border-left: 1px solid $color !important;
+  }
+}

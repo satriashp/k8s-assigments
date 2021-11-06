@@ -1,0 +1,423 @@
+@import 'variables';
+/* ========================================================================== */
+/* buttons */
+/* ========================================================================== */
+
+.btn {
+  font-size: 14px;
+  border-radius: $border-radius;
+  padding-top: 11px;
+  padding-bottom: 11px;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+  }
+
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+}
+
+.btn.btn-light {
+  @include button-variant(theme-color('light'), theme-color('light'));
+  color: $n-90;
+  &:disabled, &.disabled {
+    background-color: $n-10;
+  }
+}
+
+.btn.btn-outline-white {
+  @include button-variant(white, $n-20);
+}
+
+// button
+.btn-success {
+  // we need this because changing $theme-colors is not enough
+  color: white !important;
+}
+
+.btn-primary {
+  // set background color at hover n active state manually
+  @include button-variant(
+    theme-color('primary'),
+    theme-color('primary'),
+    $br-40,
+    $br-40,
+    $br-50,
+    $br-50
+  );
+}
+
+.btn {
+  &.btn-transparent,
+  &.btn-icon {
+    box-shadow: unset;
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  &.btn-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: $n-10;
+    border-color: $n-10;
+    color: $n-50;
+  }
+}
+
+/* ========================================================================== */
+/* forms */
+/* ========================================================================== */
+
+.form-control {
+  border-color: $n-20;
+  &:focus {
+    box-shadow: unset;
+    border-color: $br-40;
+
+    & + .input-group-append {
+      & > button:not(.append) {
+        border-color: $br-40;
+      }
+    }
+  }
+
+  &::placeholder {
+    color: $n-30;
+    font-size: 14px;
+  }
+
+  &.is-invalid {
+    border-color: $r-20;
+    background: $r-10 url('../assets/images/icons/notif-danger.svg') no-repeat;
+    background-size: 16px 16px;
+    background-position: right 16px center;
+    border-color: #F75E6B;
+    padding-right: 36px;
+
+    &:focus {
+      box-shadow: unset;
+    }
+
+    & + .input-group-append {
+      button:not(.append) {
+        $color: #dc3545; //lets go with this for now
+        border-color: $color;
+        &:focus,
+        &:hover,
+        &:active {
+          border-color: $color !important;
+        }
+      }
+    }
+  }
+}
+
+.input-group {
+  @media (max-width: $breakpoint-sm) {
+    input {
+      height: inherit;
+    }
+  }
+
+  .input-group-append {
+    button {
+      height: calc(1.5em + 0.75rem + 2px);
+      border-bottom-right-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    button:not(.append) {
+      color: $n-80 !important;
+      background: white;
+      border-color: $n-20;
+      box-shadow: unset !important;
+
+      &:focus,
+      &:hover {
+        background: $n-10 !important;
+      }
+
+      &:active {
+        background: $n-20 !important;
+      }
+
+      &:focus,
+      &:active {
+        // box-shadow: 0 0 0 0.2rem $n-10 !important;
+        border-color: $n-20 !important;
+      }
+
+      &:first-of-type {
+        border-left: 0;
+      }
+    }
+
+    .btn {
+      font-size: 16px;
+      padding-top: unset;
+      padding-bottom: unset;
+    }
+
+    button.btn.btn-append {
+      @include button-variant(#fafafa, $n-30);
+      border-left-width: 1px;
+      border-left-style: solid;
+    }
+  }
+
+  .input-group-text {
+    border-color: $n-20;
+  }
+}
+
+/* ========================================================================== */
+/* components */
+/* ========================================================================== */
+
+.card {
+  border: 1px solid var(--n-20);
+  // box-shadow: 0px 1px 6px rgba(49, 53, 59, 0.12);
+  box-shadow: unset !important;
+  border-radius: $border-radius;
+
+  .card-header {
+    border-bottom: 1px solid var(--n-20) !important;
+  }
+}
+
+.alert {
+  border: 0;
+  border-left: 3px solid;
+  padding: 12px;
+  border-radius: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+
+  &--inline {
+    padding: 11px 12px;
+    border: 1px solid;
+    border-left: 3px solid;
+    border-radius: 4px;
+    display: flex;
+  }
+
+  &-success {
+    color: $g-40;
+    background-color: $g-10;
+    border-color: $g-30;
+
+    svg {
+      color: $g-30;
+    }
+  }
+
+  &-info {
+    color: $b-40;
+    background-color: $b-10;
+    border-color: $b-30;
+
+    svg {
+      color: $b-30;
+    }
+  }
+
+  &-danger {
+    color: $r-40;
+    background-color: $r-10;
+    border-color: $r-30;
+
+    svg {
+      color: $r-30;
+    }
+  }
+
+  &-warning {
+    color: $y-40;
+    background-color: $y-10;
+    border-color: $y-40;
+
+    svg {
+      color: $y-30;
+    }
+  }
+
+  &--sm {
+    line-height: 16px;
+    font-size: 12px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.dropdown-menu {
+  border: unset;
+  border-radius: $border-radius;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-toggle.no-arrow::after {
+  content: none;
+}
+
+// tabs
+.nav-tabs {
+  font-size: 16px;
+  border-top: 1px solid $extras-divider;
+  border-bottom: 1px solid $extras-divider;
+
+  .nav-link {
+    border-bottom-width: 1px;
+    color: $n-50;
+    border: unset;
+
+    &:hover {
+      border: unset;
+    }
+
+    &.active {
+      border: unset;
+      color: $br-50;
+      border-bottom: 2px solid $br-50;
+      font-family: 'printerous-font-medium';
+    }
+  }
+}
+
+.tab-content {
+  padding-top: 24px;
+}
+
+// accordion
+.accordion {
+  border: 1px solid $extras-divider;
+  border-radius: $border-radius;
+
+  .card {
+    box-shadow: unset;
+
+    .card-header {
+      border-bottom: unset;
+      background-color: unset;
+      border-top: 1px solid $extras-divider;
+    }
+  }
+}
+
+// pagination
+.pagination {
+  .page-item {
+    &:not(:last-of-type) {
+      margin-right: 8px;
+    }
+
+    &:not(.active) .page-link:hover {
+      background-color: unset;
+      border-color: var(--br-50);
+    }
+
+    .page-link {
+      border-radius: $border-radius;
+      border: unset;
+      padding: 0.75rem 1rem;
+      color: var(--n-70);
+    }
+
+    &.active .page-link {
+      background-color: var(--br-50);
+      border-color: var(--br-50);
+      color: var(--n-0);
+      z-index: unset;
+    }
+  }
+}
+
+// utilities
+.rounded {
+  border-radius: $border-radius;
+}
+.rounded-sm {
+  border-radius: $border-radius;
+}
+.rounded-lg {
+  border-radius: $border-radius;
+}
+
+.custom-select {
+  background-image: url('../assets/images/icons/angle-down.svg') !important;
+  background-size: 12px 14px !important;
+
+  &.is-invalid {
+    background-color: $r-10;
+  }
+}
+
+.form-control, .custom-select {
+  ~ .invalid-feedback {
+    color: var(--n-50);
+  }
+}
+
+.modal-content {
+  border-radius: var(--border-radius);
+}
+
+.modal-title {
+  font-family: 'printerous-font-medium';
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--n-90);
+}
+
+// Dropdown
+.dropdown-menu {
+  border: unset;
+  border-radius: $border-radius;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-toggle.no-arrow::after {
+  content: none;
+}
+
+.tooltip {
+  opacity: 1;
+  font-family: printerous-font-regular;
+  font-size: 14px;
+
+  .arrow:before {
+    border-bottom-color: var(--n-90);
+  }
+
+  .tooltip-inner {
+    border-radius: 4px;
+    background-color: var(--n-90);
+    padding: 8px 12px;
+  }
+
+  &.w-300 .tooltip-inner {
+    min-width: 300px;
+  }
+}

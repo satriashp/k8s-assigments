@@ -1,0 +1,66 @@
+.product-thumbnail {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin-bottom: 16px;
+  padding-right: 24px;
+
+  @media (max-width: 576px) {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  img {
+    border: 1px solid $n-20;
+    // width: 100%;
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 16px;
+    margin-bottom: 16px;
+
+    @media (max-width: 576px) {
+      width: 132px !important;
+      height: 132px !important;
+    }
+  }
+
+  /* Art Carton */
+  & div:first-of-type {
+    font-family: 'printerous-font-medium';
+    margin-bottom: 16px;
+  }
+
+  /* description */
+  & div:nth-of-type(2) {
+    margin-bottom: 16px;
+  }
+
+  /* tersedia dalam */
+  & div:nth-of-type(3) {
+    font-family: 'printerous-font-medium';
+    margin-bottom: 8px;
+  }
+}
+
+.description-table {
+  border: 1px solid $n-20;
+  overflow: hidden;
+  border-radius: 12px;
+
+  table {
+    width: 100%;
+
+    thead {
+      border-bottom: 1px solid $n-20;
+
+      th {
+        padding: 15px;
+      }
+    }
+
+    td {
+      padding: 18px 16px;
+    }
+  }
+}

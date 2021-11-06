@@ -1,0 +1,61 @@
+$fonts: (
+  'printerous-font-light': '../assets/fonts/Rubik/Rubik-Light.otf',
+  'printerous-font-regular': '../assets/fonts/Rubik/Rubik-Regular.otf',
+  'printerous-font-medium': '../assets/fonts/Rubik/Rubik-Medium.otf',
+  'printerous-font-bold': '../assets/fonts/Rubik/Rubik-Bold.otf',
+  'printerous-font-black': '../assets/fonts/Rubik/Rubik-Black.otf',
+);
+
+@each $name, $font in $fonts {
+  @font-face {
+    font-family: $name;
+    src: local($name), url($font) format('truetype');
+  }
+
+  .#{$name} {
+    font-family: $name !important;
+  }
+}
+
+$sizes: 8, 10, 12, 14, 16, 18, 21, 24, 28, 32, 36, 42;
+$variants: (
+  'light': 'printerous-font-light',
+  'reg': 'printerous-font-regular',
+  'med': 'printerous-font-medium',
+  'bold': 'printerous-font-bold',
+  'black': 'printerous-font-black',
+);
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+);
+
+@each $size in $sizes {
+  @each $variant, $family in $variants {
+    .#{$variant}-#{$size} {
+      font-size: #{$size}px !important;
+      font-family: $family !important;
+    }
+
+    @each $breakpoint, $width in $breakpoints {
+      .#{$variant}-#{$size}-#{$breakpoint} {
+        @media (min-width: $width) {
+          font-size: #{$size}px !important;
+          font-family: $family !important;
+        }
+      }
+    }
+  }
+}
+
+body {
+  font-family: 'printerous-font-regular';
+  font-size: 14px;
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+}

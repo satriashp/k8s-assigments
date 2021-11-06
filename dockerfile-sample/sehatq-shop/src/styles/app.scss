@@ -1,0 +1,30 @@
+// Override default variables before the import
+@import 'colors';
+@import 'variables';
+
+$theme-colors: (
+  'primary': $br-50,
+  'success': $green-500,
+  'light': $extras-white,
+);
+
+// Import Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/react-toastify/scss/main.scss';
+@import 'fonts';
+@import 'bootstrap-custom';
+@import 'animations';
+@import 'custom';
+@import 'product-description';
+
+#root {
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  &.slide-opened {
+    overflow-y: hidden;
+    max-height: 100vh;
+  }
+}

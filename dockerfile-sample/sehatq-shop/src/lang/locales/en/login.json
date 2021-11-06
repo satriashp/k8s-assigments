@@ -1,0 +1,11 @@
+{
+  "title": "Sign In",
+  "subtitle": "Enter your credentials below",
+  "password": "Password",
+  "sign_in": "Sign in",
+  "forgot_password": "Forgot password ?",
+  "required_email": "Email cannot be empty",
+  "invalid_email_format": "Email format is not valid",
+  "required_password": "Password cannot be empty",
+  "invalid_email_password": "Invalid email or password"
+}

@@ -1,0 +1,10 @@
+{
+  "required_input": "Tidak boleh kosong.",
+  "required_option": "Silakan pilih salah satu pilihan.",
+  "password_confirmation_error": "Konfirmasi kata sandi tidak cocok.",
+  "min_char": "Minimal {{min}} karakter",
+  "max_char": "Maksimal {{max}} karakter",
+  "equal_char": "Harus {{equal}} karakter",
+  "allowed_format": "Format yang diziinkan adalah {{format}}",
+  "required_password": "Password tidak boleh kosong."
+}

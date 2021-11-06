@@ -1,0 +1,11 @@
+{
+  "title": "Masuk Akun",
+  "subtitle": "Masukkan Email dan Password Anda di bawah ini",
+  "password": "Kata Sandi",
+  "sign_in": "Masuk",
+  "forgot_password": "Lupa kata sandi ?",
+  "required_email": "Email tidak boleh kosong",
+  "invalid_email_format": "Format email tidak valid",
+  "required_password": "Password tidak boleh kosong",
+  "invalid_email_password": "Email atau kata sandi tidak valid"
+}
